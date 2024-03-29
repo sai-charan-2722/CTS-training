@@ -1,0 +1,27 @@
+/* to get space between navbar logo and side */
+.container-fluid{
+    margin-left: 10px;
+}
+
+/* to get space between the navlogo and the links */
+.navbar-nav{
+    margin-left: 35%;
+}
+
+/* to get space between the nav-links */
+.nav-item{
+    margin-left: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #626262;
+}
+
+.nav-item :active{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #0D3563;
+}
+
+.navbar-toggler{
+    padding: 10px;
+    border: none;
+}

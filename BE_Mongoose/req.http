@@ -1,0 +1,29 @@
+get http://localhost:4000/user-api/users
+
+###
+get http://localhost:4000/user-api/users/saicharan
+
+###
+post http://localhost:4000/user-api/user
+Content-Type: application/json
+
+{
+    "username":"saicharan",
+    "password":"charan",
+    "email":"charan@mail.com",
+    "age":22
+}
+
+###
+put http://localhost:4000/user-api/user
+Content-Type: application/json
+
+{
+    "username":"saicharan",
+    "password":"charan",
+    "email":"charan@mail.com",
+    "age":22
+}
+
+###
+delete http://localhost:4000/user-api/users/saicharan

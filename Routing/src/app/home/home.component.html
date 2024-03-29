@@ -1,0 +1,35 @@
+<!-- <select class="bg-dark p-2 text-light mx-auto mt-4" (change)="display($event)">
+    <option value="">Select User Id</option>
+    @for(da of data; track da.id; let i = $index){
+        <option [ngValue]="da.id" (click)="display(da)">{{da.id}}</option>
+    }@empty{
+        <h1 class="display-1 text-warning">Select User Id</h1>
+    } 
+    <option [ngValue]="da" *ngFor="let da of data;let i = index">{{da.id}}</option>
+</select> 
+
+
+<div class="card shadow-md h-100 mt-4">
+    <img [src]='obj.avatar' width="200px" height="200px" class="d-block mx-auto p-3" alt="">
+    <div class="card-body">
+        <p class="fs-2">{{obj.first_name}}</p><br>
+        <p class="fs-2">{{obj.last_name}}</p><br>
+        <p class="fs-2">{{obj.email}}</p>
+    </div>
+</div> -->
+<p class="display-4 text-center text-info">Home</p>
+
+<div class="container">                                          
+    <div class="dropdown">
+      <button type="button" id="butn" class="btn btn-outline-primary my-auto dropdown-toggle" data-toggle="dropdown">
+        Select User
+      </button>
+      <div class="dropdown-menu">
+        <a *ngFor="let a of data" class="dropdown-item" (click)="display($event,a)">{{a.id}}</a>
+    </div>
+    <div class="card shadow-lg h-100 mt-2 p-3">
+        <img  class="p-3"[src]="obj.avatar" height="200px" width="200px">
+        <p class="lead fs-1">{{obj.email}}</p>
+        <p class="lead fs-2">{{obj.first_name}} {{obj.last_name}}</p> 
+    </div>   
+</div>

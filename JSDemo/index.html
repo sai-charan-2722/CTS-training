@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice</title>
+</head>
+<body>
+    <!-- <h1 class="heading">Hello Javascript</h1>
+    <div class="hero">
+        <h2 class="head2">welcome</h2>
+        <p class="para">Lorem ipsum dolor sit amet.</p>
+    </div>
+    <button>Submit</button> -->
+    <select name="food" id="items">
+        <option value=null>select-item</option>
+        <option value="pizza">pizza</option>
+        <option value="burger">burger</option>
+        <option value="kfc">kfc</option>
+        <option value="sandwich">sandwich</option>
+    </select>
+    <script>
+        let dropdown = document.getElementById("items")
+        
+        dropdown.addEventListener("change",(event)=>{
+            let selected = event.target.value;
+            console.log(selected);
+        })
+    </script>
+</body>
+</html>

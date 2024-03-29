@@ -1,0 +1,108 @@
+.carousel-inner {
+    height: 83vh;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .d-block {
+    padding-top: 3%;
+    margin-left: 3%;
+    padding-right: 0;
+    margin-right: 0;
+    height: 84vh;
+    width: 45vw;
+  }
+  
+  .carousel-item {
+    margin: 0px;
+  }
+  
+  .body-content {
+    padding: 0;
+    margin: 0;
+    padding-top: 10%;
+    padding-left: 10%;
+    width: 80vw;
+  }
+  
+  /* styling for carousel-content */
+  .carousel-content {
+    height: 100vh;
+    width: 80vw;
+    display: flex;
+  }
+  
+  .carousel-content h3 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 36px;
+    color: #333333;
+  }
+  .carousel-content h4 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 22px;
+    color: #5e5e5e;
+  }
+  .carousel-content p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    color: #5e5e5e;
+  }
+  #getStarted {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #ffffff;
+    background-color: #568f90;
+    border-radius: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    border: none;
+  }
+  #readMore {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #ffffff;
+    background-color: #568f90;
+    border-radius: 20px;
+    margin-left: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    border: none;
+  }
+  
+  /* to make the buttons circle*/
+  .carousel-indicators button {
+    border-radius: 100% !important;
+    height: 12px;
+    width: 12px;
+    border: 2px solid #568f90;
+    color: #568f90;
+  }
+  
+  /* media queries for mobile screen */
+  
+  @media only screen and (max-width: 600px) {
+    .carousel-content {
+      flex-direction: column;
+      align-items: center;
+    }
+    .body-content {
+      width: 100vw;
+      height: 100vh;
+      margin-left: 60px;
+      padding-top: 10px;
+    }
+    #readMore {
+      margin-left: 7%;
+    }
+    .carousel-item {
+      height: 1000px;
+    }
+    #caraousalExampleIndicators{
+      height: 1000px;
+    }
+  }
+  

@@ -1,0 +1,20 @@
+.navbar{
+    background-color: #aaa;
+}
+.navbar-text{
+    margin-left: 630px;
+}
+.navbar-text:hover{
+    cursor: pointer;
+}
+.bi{
+    padding: 0px 10px;
+}
+a{
+    color: black;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+.active{
+    color: rgb(0, 0, 255);
+}

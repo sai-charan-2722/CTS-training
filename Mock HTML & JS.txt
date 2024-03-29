@@ -1,0 +1,454 @@
+// Fill the code as per the requirements. Do not change the function name.
+
+function PlaceOrder(){
+    try{
+        // Fill the code here.
+        // Retrieve the DOM input elements like deliveryDate, cakeType, cakeShape, weight, deliveryYes and cutlery using its id.
+        // Check for valid deliveryDate. If invalid, then display "Invalid Delivery Date" in the div with id as "result". 
+        // If deliveryDate is valid, calculate the totalCost.
+        // Check for the choices opted for door delivery and cutlery. 
+        // Display the appropriate result along with the totalCost as per the requirements given in description. 
+        let costPerKg = 10;
+        let deliveryDate = document.getElementById("deliveryDate").value;
+        let typeDropdown = document.getElementById("cakeType");
+        let cakeType = typeDropdown.options[typeDropdown.selectedIndex].value;
+        // typeDropdown.addEventListener("change",(event)=>{
+        //     cakeType = event.target.value;
+        // })
+        let shapeDropdown = document.getElementById("cakeShape");
+        let cakeShape = shapeDropdown.options[shapeDropdown.selectedIndex].value;
+        // shapeDropdown.addEventListener("change",(event)=>{
+        //     cakeShape = event.target.value;
+        // })
+        let weight = document.getElementById("weight").value;
+        weight = Number(weight)
+        let deliveryYes = document.getElementById("deliveryYes").checked?5:0;
+        // let deliveryYes;
+        // for(let i=0;i<deliveryRadio.length;i++){
+        //     if(deliveryRadio[i].checked){
+        //         deliveryYes = deliveryRadio[i];
+        //     }
+        // }
+        let cutlery = document.getElementById("cutlery").checked ? "Cutlery will be provided" : "Thanks for not opting cutlery.";
+        
+        // let str;
+        // let st;
+        
+        if(!isValidDeliveryDate(deliveryDate)){
+            document.getElementById("result").innerHTML = "Invalid Delivery Date";
+        }else{
+            // if(deliveryYes==="Yes"){
+            //     deliveryCost = 5;
+            //     str = "with";
+            // }else{
+            //     deliveryCost = 0;
+            //     str = "without";
+            // }
+            // if(cutlery.checked){
+            //     st = "Cutlery will be provided";
+            // }else{
+            //     st = "Thanks for not opting cutlery.";
+            // }
+            totalCost = getCostOfCakeType(cakeType) + getCostOfCakeShape(cakeShape) + deliveryYes + (weight*costPerKg)
+            document.getElementById("result").innerHTML = `Your ${weight} Kg ${cakeShape} shaped ${cakeType} cake with${deliveryYes>0?"":"out"} door delivery cost is $${totalCost}. ${cutlery}`
+        }
+        
+        
+        
+        
+    
+    
+    return false;
+    }
+    catch(e){
+          document.getElementById("result").innerHTML="Function PlaceOrder: "+e;
+          }
+}
+
+
+
+function getCostOfCakeType(cakeType){
+    try{
+        // Fill the code to return the cost based on cake type.
+        // Red Velvet=6, Butterscotch=5, Chocolate Truffle=7, Black Forest=8 and White Forest=9 in Dollars.
+        let cost;
+        switch (cakeType) {
+            case 'Red Velvet':
+                // code
+                cost = 6;
+                break;
+            case 'Butterscotch':
+                // code
+                cost = 5;
+                break;
+            case 'Chocolate Truffle':
+                // code
+                cost = 7;
+                break;
+            case 'Black Forest':
+                // code
+                cost = 8;
+                break;
+            case 'White Forest':
+                // code
+                cost = 9;
+                break;
+                
+            
+                
+            
+            default:
+                // code
+                cost = 0;
+        }
+        return cost;
+    
+    
+    
+    
+}
+    catch(e){
+          document.getElementById("result").innerHTML="Function getCostOfCakeType: "+e;
+          }
+}
+
+function getCostOfCakeShape(cakeShape){
+    try{
+        // Fill the code to return the cost based on cake shape.
+        // Square=2, Circle=3 and Heart=4 in Dollars.
+        let cost;
+        switch (cakeShape) {
+            case 'Square':
+                // code
+                cost = 2;
+                break;
+            case 'Circle':
+                // code
+                cost = 3;
+                break;
+            case 'Heart':
+                // code
+                cost = 4;
+                break;
+                
+            
+            default:
+                // code
+                cost = 0;
+        }
+        return cost;
+
+    
+    
+    
+    }
+    catch(e){
+          document.getElementById("result").innerHTML="Function getCostOfCakeShape: "+e;
+          }
+}
+
+function isValidDeliveryDate(deliveryDate)
+{
+    // Don't do any changes in this method
+    try{
+        var today=new Date();
+        deliveryDate=new Date(deliveryDate);
+   
+        if(deliveryDate>today) {
+            return true;
+        } else {
+            return false;
+        }
+    } catch(e) {
+        document.getElementById("result").innerHTML="Function checkDeliveryDate: "+e;
+    }
+}
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------
+
+
+//Don't change or delete the try/catch block
+
+function calculateCost(){
+    try {
+        //Fetch the needed DOM values 
+        let name = document.getElementById("cname").value;
+        let count = document.getElementById("count").value;
+        let password = document.getElementById("pwd").value;
+        let breed = document.getElementById("breed").value;
+        
+        
+        //Invoke checkPassword(pwd) , if true then invoke getTotalAmount(count,breed) and dsiplay the output as per description
+        //if false, display the correct message as given in description
+        if(!checkPassword()){
+            document.getElementById("result").innerHTML = " Password doesn't match the required pattern";
+        }else{
+            let totalAmount = getTotalAmount(count,breed);
+            document.getElementById("result").innerHTML = `Hi ${name}, the total amount to be paid for the breed ${breed} is $${totalAmount}.`
+        }
+        
+      }
+            
+    catch(err){
+        document.getElementById("result").innerHTML="Function calculateCost: "+err;
+    }
+    return false;
+}
+
+function checkPassword(password) {
+	try {
+        	    
+        	// Fill your code here to check whether the password pattern satisfies the requirements
+        	//password should be of minimum 6 characters having atleast 1 small letter(a-z),1 capital letter(A-Z) and 1 digit(0-9)
+            // HINT :use RegExp to match the pattern, if matches with pattern return true, else false.
+            let pattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{6,}$/;
+            return pattern.test(password);
+            
+            
+             
+        		
+	} catch(err) {
+		document.getElementById("result").innerHTML="Function checkPassword: "+err;
+	}
+}
+
+function getTotalAmount(count,breed) {
+    try{
+    
+   // Return the total cost after applying 20% discount on total amount based on breed selection and total number of puppies passed as arguments
+   // refer description for cost per puppy for breed types
+   let cost;
+   switch (breed) {
+       case 'German Shepherd':
+           // code
+           cost = 1500;
+           break;
+        case 'Havanese':
+            // code
+            cost = 1000;
+            break;
+        case 'Golden Retriever':
+            // code
+            cost = 900;
+            break;
+        case 'Siberian Husky':
+            // code
+            cost = 2000;
+            break;
+        case 'Maltese':
+            // code
+            cost = 1200;
+            break;
+            
+            
+            
+           
+       
+       default:
+           // code
+           cost = 0;
+   }
+        totalCost = 0.8*(cost*count)
+        return totalCost;
+
+      }
+      catch(err){
+           document.getElementById("result").innerHTML="Function getTotalAmount: "+err;
+          }
+}
+       
+...........................................................................................................
+
+
+<!-- Write necessary code wherever needed to complete this MC -->
+<!-- Do specify all the component-ids correctly for your code to get evaluated successfully -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>LEE Hospital</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+<body>
+<form>
+
+<div id="header">
+  <h1>LEE Hospital - Appointment Portal</h1>
+  <p>Fill the form below and we will get back soon to you for more updates</p>
+</div>
+
+<!-- Make use of the following entity for alignment purpose: '&nbsp;','&ensp;', and '&emsp;' -->
+
+<div id="details">
+ 
+ <!-- Code for "First name" and "Last name" -->
+ <label for="firstname">Name*</label>
+ <input type="text" name="firstname" id="firstname" value="" required placeholder="First name" pattern="[A-Za-z\\s]+"/>
+ <input type="text" name="lastname" id="lastname" value="" required placeholder="Last name" pattern="[A-Za-z\\s]+"/>
+
+<br><br>
+
+<!-- Code for "Gender" and "Phone" -->
+<label for="gender">Gender*</label>
+<select name="gender" id="gender">
+    <option value="Male">Male</option>
+    <option value="Female">Female</option>
+    <option value="Transgender">Transgender</option>
+</select>
+<label for="phone">Phone*</label>
+<input type="tel" name="phone" id="phone" value=""  required placeholder="### ### ####" />
+
+<br><br>
+
+<!-- Code for "DOB" and "Email address" -->
+<label for="dob">Date of Birth*</label>
+<input type="date" name="dob" id="dob" value="" required/>
+<label for="email">Email Address*</label>
+<input type="email" name="email" id="email" value="" required/>
+
+<br><br>
+
+<!-- Code for "Address" -->
+<label for="address">Address</label>
+<textarea name="address" id=address rows="5" cols="46" required placeholder="Type your address here"></textarea>
+<br>
+
+<!-- Code for "First_visit" -->
+<label>Is this your first visit to this hospital?*</label>
+<input type="radio" name="first_visit" id="yes" value="Yes" />
+<input type="radio" name="first_visit" id="no" value="No" />
+<br>
+
+<fieldset>
+<legend><h3>Appointment Details</h3></legend>
+
+<!-- Code for "Appointment types" -->
+<label for="">Select which appointment type(s) you require</label>
+<input type="checkbox" name="" id="cervix" value="Cervix checkup" />
+<input type="checkbox" name="" id="heart" value="Heart checkup" />
+<input type="checkbox" name="" id="eye" value="Eye checkup" />
+<input type="checkbox" name="" id="hearing" value="Hearing checkup" />
+
+<br><br>
+
+<!-- Code for "Appointment time" -->
+<label for="appointment_time">Time of Appointment*</label>
+<input type="time" name="appointment_time" id="appointment_time" value="" required />
+
+<br>
+
+</fieldset>
+
+<div><h5>Disclaimer:</h5>
+  <li>We strive to accommodate your preferred appointment dates and time.</li>
+  <li> Please bear in mind that we offer no certain guarantees due to a number of conditions.</li>
+  <li> But not limited to: business hours of operation, staffing, equipment, availability, and holidays.</li>
+  <li>  Please allow us up to 24-hours to respond to your appointment request.</li>
+</div>
+ <br>
+ </div>
+<!--  Code for submit button -->
+<button type="button" id="send" onclick="alert(`Your request has been forwarded. We will reach you shortly`)">Send</button>
+<br>
+</form>
+</body>
+</html>
+
+
+_____________________________________________________________________________________________________________
+
+
+<!--Please do not make any changes in this template-->
+<!--CSS and image file included as part of this template-->
+<!-- Write necessary code wherever needed to complete this MC  -->
+<!-- Do specify all the component-ids correctly for your code to get evaluated successfully -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Opel Tours</title> 
+         <link rel="stylesheet" href="style.css">
+           
+	</head>
+    <body>
+<!--Create header with the id 'main'-->
+    <header id="main">
+        <h1 id="head1">OPEL TOURS</h1>
+        
+    
+        <!--Create heading - OPEL TOURS with h1 tag with id head1 -->
+        <!--Encolse the below anchor tags with navigation element which has navigation as id-->
+            <nav id="navigation">
+                <a href="#top">HOME</a> |
+              <a href="#top">ABOUT US</a> |
+              <a href="#top">GALLERY</a> |
+              <a href="#top">CONTACT US</a>
+            </nav>
+        </header>
+              
+              
+              <!--Create section element with 'first; as id-->
+              <section id="first">
+                  <h2 id="int">INTERNATIONAL DESTINATIONS</h2>
+                  <aside id="side">
+                      <table id="package" border="2">
+                          <caption id="cap">PACKAGE INCLUSIONS</caption>
+                          <tr>
+                              <td id="rspan" rowspan="5">National & International</td>
+                          </tr>
+                          <tr>
+                              <td id="d1">Air fare for economy class</td>
+                          </tr>
+                          <tr>
+                              <td id="d2">Accommodation</td>
+                          </tr>
+                          <tr>
+                              <td id="d3">All transfers by car</td>
+                          </tr>
+                          <tr>
+                              <td id="d4">All permits</td>
+                          </tr>
+                      </table>
+                  </aside>
+              
+
+        <!--Create heading INTERNATIONAL DESTINATIONS in h2 tag with id 'int'-->
+
+           <!--Create aside element with id 'side'-->
+            <!--Create table with id 'package' and border value="2" -->
+            
+            <p>Places to Visit in <span id="highlight1">OTHER COUNTRIES</span></p>
+            <!--Create Unordered list with id 'info1'-->
+            <ul id="info1">
+                <li>New Zealand</li>
+                <li>Paris</li>
+                <li>Bora Bora</li>
+                <li>Maui</li>
+                <li>Tahiti</li>
+            </ul>
+            
+               
+            <!--Include the image in the figure element with id 'image1'-->
+            <figure id="image1">
+                <img id="international" src="Abroad1.jpg" alt="image" />
+                <figcaption id="figcap1">International Glimpses</figcaption>
+            </figure>
+            </section>
+                <!--image tag should have the id 'international.Image file name Abroad1.jpg-->
+           
+            <!--figure caption id 'figcap' and text value 'International Glimpses'-->
+            
+
+        
+            <!--Create footer with id 'footer' contains paragraph tag with id 'rights'-->
+            <footer id="footer">
+                <p id="rights">2022 Opel Tours. All Rights Reserved.</p>
+            </footer>
+     
+       
+    </body>
+</html>
+
+__________________________________________________________________________________________________________
+

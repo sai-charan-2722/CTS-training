@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="row">
+      <div class="d-flex">
+        <div class="content">
+          <h3>Online Training</h3>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odio
+            voluptatum fuga facilis illo, voluptatibus maxime numquam cumque vero
+            officia? Quo beatae doloribus iusto architecto provident, harum id
+            illum voluptatum magni!
+          </p>
+          <button type="button" class="btn" id="learnMore">LEARN MORE</button>
+        </div>
+        <div class="loginForm">
+          <img src="../../assets/Logo_Desktop_Tab.png" alt="desktopLogo" />
+          <div class="card">
+            <h3>Sign In</h3>
+            <div class="card-body">
+              <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <div class="mb-5">
+                  <input
+                    type="text"
+                    id="username"
+                    class="form-control"
+                    placeholder="User Name"
+                    formControlName="username"
+                  />
+                </div>
+                <div class="mb-5">
+                  <input
+                    type="text"
+                    id="password"
+                    class="form-control"
+                    placeholder="Password"
+                    formControlName="password"
+                  />
+                </div>
+                <a id="forgotPassword" name="forgotPassword">Forgot Password?</a>
+                <br />
+                <div class="submitButton">
+                  <button type="submit" id="submit" class="btn">SIGN IN</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
+  

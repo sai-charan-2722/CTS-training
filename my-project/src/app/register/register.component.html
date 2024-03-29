@@ -1,0 +1,58 @@
+<p class="display-4 text-center text-info">STUDENT REGISTRATION</p>
+<div class="merge container">
+  <div class="container">
+    <img src="../../assets/reg1.webp" alt="" height="350px" width="600px">
+  </div>
+  <div class="container bg-dark" style="width: 40rem;">
+    <form class="w-75 mx-auto mt-2" [formGroup]="user" #ref="ngForm" (ngSubmit)="onSubmitUser()">
+      <!-- username -->
+      <div class="">
+        <label for="username" class="form-label text-light">Username</label>
+        <input type="text" formControlName="username" id="username" class="form-control">
+        <!-- validation error message for username -->
+        <div *ngIf="username.invalid && (username.dirty || username.touched || ref.submitted )" class="text-danger">
+          <p *ngIf="username?.errors?.['required']">Username is required</p>
+          <p *ngIf="username?.errors?.['minlength']">Min length is 4</p>
+          <p *ngIf="username?.errors?.['maxlength']">Max length is 10</p>
+        </div>
+      </div>
+      <!-- password -->
+      <div class="">
+        <label for="password" class="form-label text-light">Password</label>
+        <input type="password" formControlName="password" id="password" class="form-control">
+        <!-- validation msg for password -->
+        <div *ngIf="password.invalid && (password.dirty || password.touched || ref.submitted)" class="text-danger">
+          <p *ngIf="password?.errors?.['required']">Password is required</p>
+        </div>
+      </div>
+      <!-- email -->
+      <div class="">
+        <label for="email" class="form-label text-light">Email ID</label>
+        <input type="email" formControlName="email" id="email" class="form-control">
+        <!-- validation msg for password -->
+        <div *ngIf="email.invalid && (email.dirty || email.touched || ref.submitted)" class="text-danger">
+          <p *ngIf="email?.errors?.['required']">Email ID is required</p>
+        </div>
+      </div>
+      <!-- dob -->
+      <div class="">
+        <label for="dob" class="form-label text-light">DOB</label>
+        <input type="date" formControlName="dob" id="dob" class="form-control">
+        <!-- validation msg for password -->
+        <div *ngIf="dob.invalid && (dob.dirty || dob.touched || ref.submitted )" class="text-danger">
+          <p *ngIf="dob ?.errors?.['required']">DOB is required</p>
+        </div>
+      </div>
+      <!-- submit button-->
+      <button class="btn btn-success d-block mx-auto mt-3 mb-2">Register</button>
+    </form>
+    <div class="merge" style="margin-left: 70px;">
+      <p class="text-light">Already registered?</p>
+      <a routerLink="/login">Login Here!</a>
+    </div>
+    <div class="merge" style="margin-left: 60px;">
+      <p class="text-light">Register as an ADMIN ,</p>
+      <a routerLink="/adminregister">Admin register</a>
+    </div>
+  </div>
+</div>

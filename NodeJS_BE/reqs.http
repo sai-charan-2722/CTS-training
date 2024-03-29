@@ -1,0 +1,41 @@
+get http://localhost:4000/user-api/users
+
+###
+get http://localhost:4000/user-api/users/cherry
+
+###
+post http://localhost:4000/user-api/user
+Content-Type: application/json
+
+{
+    "username":"saicharan",
+    "password":"cherry",
+    "email":"cherry@mail.com"
+}
+
+###
+post http://localhost:4000/user-api/user-login
+Content-Type: application/json
+
+{
+    "username":"cherry",
+    "password":"cherry"
+}
+
+###
+get http://localhost:4000/user-api/protected
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNoZXJyeSIsInBhc3N3b3JkIjoiY2hlcnJ5IiwiaWF0IjoxNzA5MTg1NjQ4LCJleHAiOjE3MDkxODU5NDh9.bvNtM9NmNFbhHd8bLRQxi4YWlORr1JrX2pHxV4ljpSY
+
+###
+put http://localhost:4000/user-api/user
+Content-Type: application/json
+
+{
+    "username":"saicharan",
+    "password":"saicharan",
+    "email":"saicharan@mail.com"
+}
+
+###
+
+delete http://localhost:4000/user-api/user/saicharan
