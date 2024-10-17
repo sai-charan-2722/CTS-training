@@ -1,0 +1,7 @@
+.bg-image{
+    background-image: url(../assets/desktop-wallpaper-employee-management-systems-consulting-employee.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    filter: blur(3px);
+}

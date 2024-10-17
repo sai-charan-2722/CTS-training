@@ -1,0 +1,17 @@
+<form class="w-25 mx-auto" [formGroup]="loginform" (ngSubmit)="onLogin()">
+    <div class="mb-3">
+        <label for="username" class="form-label">Username:</label>
+        <input type="text" id="username" formControlName="username" class="form-control">
+        <div *ngIf="username.invalid && (username.dirty || username.touched)">
+            <p *ngIf="username?.errors?.['required']" class="text-danger">username is required</p>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">Password:</label>
+        <input type="password" id="password" formControlName="password" class="form-control">
+        <div *ngIf="password.invalid && (password.dirty || password.touched)">
+            <p *ngIf="password?.errors?.['required']" class="text-danger">password is required</p>
+        </div>
+    </div>
+    <button class="btn btn-success d-block mx-auto mb-3">Login</button>
+</form>

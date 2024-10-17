@@ -244,7 +244,38 @@
 
 //fetch api
 
-fetch("https://jsonplaceholder.typicode.com/comments?limit=10")
-.then(msg=>msg.json())
-.then(msgd=>console.log(msgd))
-.catch(ms=>console.error(ms))
+// fetch("https://jsonplaceholder.typicode.com/comments?limit=1")
+// .then(msg=>msg.json())
+// .then(msgd=>console.log(msgd))
+// .catch(ms=>console.error(ms))
+
+
+// async function fetchDetails(){
+//     let details = await fetch("https://jsonplaceholder.typicode.com/comments?limit=1");
+//     det = await details.json();
+//     console.log(det);
+// }
+
+// fetchDetails();
+
+
+// let promiseExample = ()=>{
+//     heads = true;
+//     return new Promise((resolve,reject)=>{
+//         if(!heads){
+//             resolve("its heads toss again")
+//         }else{
+//             reject("its tails")
+//         }
+//     })
+// }
+
+
+
+// promiseExample()
+// .then((val)=>{
+//     console.log("kulfiii",val)
+// })
+// .catch((val)=>{
+//     console.log("rejected",val)
+// })

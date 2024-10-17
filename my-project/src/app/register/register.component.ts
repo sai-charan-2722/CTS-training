@@ -43,19 +43,20 @@ onSubmitUser(){
   
   let {username,password,email,dob}=this.user.value;
   let newUser=new User(username,password,email,dob);
-  console.log("1",this.user.value)
+  console.log("1",this.user)
   console.log("2",newUser)
-  this.userService.createStudentUser(newUser).subscribe(
-    (res)=>{
+  this.userService.createStudentUser(newUser).subscribe({
+    next:(res)=>{
       //navigate to login
       if(this.user.status==="VALID"){
         console.log(res)
         this.router.navigate(['/login'])
       }
     },
-    (err)=>{
+    error:(err)=>{
       console.log("error in user creation",err)
     }
+  }
   )
 }
 }

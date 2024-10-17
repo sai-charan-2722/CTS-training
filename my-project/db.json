@@ -1,11 +1,5 @@
 {
-  "students": [
-    
-  ],
-  "admins": [
-    
-  ],
-  "applications": [
-    
-  ]
+  "students": [],
+  "admins": [],
+  "applications": []
 }
