@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, effect, OnChanges, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { LoggerService } from '../logger.service';
 
 @Component({
@@ -6,15 +7,20 @@ import { LoggerService } from '../logger.service';
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
-export class HeaderComponent implements OnInit{
-  constructor(private logServ:LoggerService){}
+export class HeaderComponent implements OnInit, OnChanges{
   status:boolean;
+  constructor(private logServ:LoggerService, ){
+    effect(() => {
+      this.status = this.logServ.userLoginStatus();
+    });
+  }
+  
   ngOnInit(): void {
-    this.logServ.getUserLoginStatus().subscribe(
-      (value)=>{
-        this.status = value;
-      }
-    )
+    
+  }
+
+  ngOnChanges(){
+    
   }
   
 

@@ -13,6 +13,8 @@ import { HomeComponent } from './home/home.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
+import { StoreModule } from '@ngrx/store';
+import { userReducer } from './userReducer';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    StoreModule.forRoot({user:userReducer})
   ],
   providers: [provideHttpClient(withFetch())],
   bootstrap: [AppComponent]

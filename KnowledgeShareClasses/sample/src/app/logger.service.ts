@@ -5,12 +5,24 @@ import { BehaviorSubject, Observable } from 'rxjs'
   providedIn: 'root'
 })
 export class LoggerService {
-  userLoginStatus = new BehaviorSubject<boolean>(false);
+  // userLoginStatus = new BehaviorSubject<boolean>(false);
+
+  // setUserLoginStatus(value:boolean){
+  //   this.userLoginStatus.next(value);
+  // }
+  // getUserLoginStatus(){
+  //   return this.userLoginStatus.asObservable();
+  // }
+
+  userLoginStatus = signal(false);
 
   setUserLoginStatus(value:boolean){
-    this.userLoginStatus.next(value);
+    this.userLoginStatus.set(value);
+    console.log(this.userLoginStatus());
   }
+
   getUserLoginStatus(){
-    return this.userLoginStatus.asObservable();
+    console.log(this.userLoginStatus());
+    return this.userLoginStatus();
   }
 }

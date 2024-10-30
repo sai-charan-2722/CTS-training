@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { LoggerService } from '../logger.service';
 import { UserService } from '../user.service';
 
 @Component({
@@ -8,7 +10,7 @@ import { UserService } from '../user.service';
   styleUrl: './login.component.css'
 })
 export class LoginComponent implements OnInit{
-  constructor(private fb:FormBuilder, private userService: UserService){}
+  constructor(private fb:FormBuilder, private userService: UserService, private router:Router, private logServ:LoggerService){}
   loginform:FormGroup;
   ngOnInit(): void {
     this.loginform = this.fb.group({
@@ -31,6 +33,8 @@ export class LoginComponent implements OnInit{
     this.userService.loginUser(this.loginform.value).subscribe({
       next:(res)=>{
         console.log(res);
+        this.logServ.setUserLoginStatus(true);
+        this.router.navigate(['/parent/child']);
       }
     })
   }
