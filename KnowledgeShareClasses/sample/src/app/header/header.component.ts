@@ -11,9 +11,11 @@ export class HeaderComponent implements OnInit, OnChanges{
   status:boolean;
   constructor(private logServ:LoggerService, ){
     effect(() => {
-      this.status = this.logServ.userLoginStatus();
+      this.status =this.logServ.userLogin();
     });
   }
+
+
   
   ngOnInit(): void {
     

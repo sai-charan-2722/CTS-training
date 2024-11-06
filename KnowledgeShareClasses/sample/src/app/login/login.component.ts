@@ -34,7 +34,8 @@ export class LoginComponent implements OnInit{
       next:(res)=>{
         console.log(res);
         this.logServ.setUserLoginStatus(true);
-        this.router.navigate(['/parent/child']);
+        this.logServ.setUserLogin(true);
+        this.router.navigate(['/posts']);
       }
     })
   }

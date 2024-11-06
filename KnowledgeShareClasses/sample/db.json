@@ -1,5 +1,11 @@
 {
   "users": [
-    
+    {
+      "id": "224a",
+      "username": "saicharan",
+      "password": "saicharan",
+      "email": "saicharanyadav@gmail.com",
+      "dob": ""
+    }
   ]
 }

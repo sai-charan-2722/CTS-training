@@ -15,6 +15,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { userReducer } from './userReducer';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { PostsComponent } from './posts/posts.component';
+import { CreateDirective } from './create.directive';
+import { HideDirective } from './hide.directive';
 
 @NgModule({
   declarations: [
@@ -27,7 +31,11 @@ import { userReducer } from './userReducer';
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    FeedbackComponent
+    FeedbackComponent,
+    PagenotfoundComponent,
+    PostsComponent,
+    CreateDirective,
+    HideDirective
   ],
   imports: [
     BrowserModule,

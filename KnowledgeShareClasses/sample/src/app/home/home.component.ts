@@ -20,4 +20,9 @@ export class HomeComponent {
     this.store.dispatch({type:"mobile-edit",payload:mbl.value});
     mbl.value="";
   }
+
+  status:boolean = false;
+  toggle(){
+    this.status = !this.status;
+  }
 }
