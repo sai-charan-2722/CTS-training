@@ -25,7 +25,7 @@ const routes: Routes = [
   {
     path:'posts',
     component:PostsComponent,
-    canActivate:[secureGuard]
+    // canActivate:[secureGuard]
   },{
     path:"parent",
     component:ParentComponent,
