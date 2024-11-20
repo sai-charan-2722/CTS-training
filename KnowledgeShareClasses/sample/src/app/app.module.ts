@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +19,10 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { PostsComponent } from './posts/posts.component';
 import { CreateDirective } from './create.directive';
 import { HideDirective } from './hide.directive';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
+import { userEffect } from './user.effect';
+import { usersReducer } from './user.reducer';
 
 @NgModule({
   declarations: [
@@ -42,7 +46,9 @@ import { HideDirective } from './hide.directive';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({user:userReducer})
+    StoreModule.forRoot({user:userReducer,users:usersReducer}),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
+    EffectsModule.forRoot([userEffect])
   ],
   providers: [provideHttpClient(withFetch())],
   bootstrap: [AppComponent]

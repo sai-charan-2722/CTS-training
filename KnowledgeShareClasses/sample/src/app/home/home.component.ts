@@ -21,8 +21,4 @@ export class HomeComponent {
     mbl.value="";
   }
 
-  status:boolean = false;
-  toggle(){
-    this.status = !this.status;
-  }
 }

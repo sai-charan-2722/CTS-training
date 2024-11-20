@@ -29,12 +29,12 @@ const routes: Routes = [
   },{
     path:"parent",
     component:ParentComponent,
-    canActivateChild:[protectGuard],
+    // canActivateChild:[protectGuard],
     children:[
       {
         path:"feedback",
         component:FeedbackComponent,
-        canActivate:[secureGuard]
+        // canActivate:[secureGuard]
       },{
         path:"child",
         component:ChildComponent

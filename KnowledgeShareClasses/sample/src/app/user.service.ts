@@ -11,7 +11,11 @@ export class UserService {
   constructor(public http:HttpClient) { }
 
   getData():Observable<any>{
-    return this.http.get('https://jsonplaceholder.typicode.com/comments/150');
+    return this.http.get('https://jsonplaceholder.typicode.com/comments/5');
+  }
+
+  getUsers():Observable<any>{
+    return this.http.get('https://jsonplaceholder.typicode.com/users');
   }
 
   createUser(newUser:User):Observable<any>{

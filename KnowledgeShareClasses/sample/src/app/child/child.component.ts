@@ -16,4 +16,8 @@ export class ChildComponent{
       }
     })
   }
+  status:boolean = false;
+  toggle(){
+    this.status = !this.status;
+  }
 }
