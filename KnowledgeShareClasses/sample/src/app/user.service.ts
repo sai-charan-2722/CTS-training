@@ -10,7 +10,7 @@ export class UserService {
 
   constructor(public http:HttpClient) { }
 
-  getData():Observable<any>{
+  getComments():Observable<any>{
     return this.http.get('https://jsonplaceholder.typicode.com/comments/5');
   }
 

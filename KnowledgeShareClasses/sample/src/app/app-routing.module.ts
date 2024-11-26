@@ -21,11 +21,6 @@ const routes: Routes = [
   },{
     path:"register",
     component:RegisterComponent
-  },
-  {
-    path:'posts',
-    component:PostsComponent,
-    // canActivate:[secureGuard]
   },{
     path:"parent",
     component:ParentComponent,
@@ -38,6 +33,10 @@ const routes: Routes = [
       },{
         path:"child",
         component:ChildComponent
+      },{
+        path:'posts',
+        component:PostsComponent,
+        // canActivate:[secureGuard]
       }
     ]
   },{

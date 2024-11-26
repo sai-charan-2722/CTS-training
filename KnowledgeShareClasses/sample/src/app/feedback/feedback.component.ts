@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { getUsers } from '../user.action';
+import { getComments, getUsers } from '../user.action';
 import { UserService } from '../user.service';
 
 @Component({
@@ -11,23 +11,20 @@ import { UserService } from '../user.service';
 export class FeedbackComponent implements OnInit{
   users: any;
   constructor(public userService:UserService, private store:Store<any>){}
-  data:any;
-  getComments(){
-    this.userService.getData().subscribe({
-      next:(res)=>{
-        console.log(res);
-        this.data = res;
+  comment:any;
+  getCommentandUsers(){
+    this.store.dispatch(getUsers());
+    this.store.dispatch(getComments());
+    this.store.select('users').subscribe(
+      data=>{
+        this.users = data.users;
+        this.comment = data.comment;
       }
-    })
+    );
+    
   }
 
   ngOnInit(): void {
-    this.store.dispatch(getUsers());
-    this.store.select('users').subscribe(
-      data=>{
-        console.log(data.users)
-        this.users = data.users;
-      }
-    )
+    
   }
 }

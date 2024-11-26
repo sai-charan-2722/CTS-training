@@ -1,9 +1,10 @@
 import { state } from "@angular/animations"
 import { createReducer, on } from "@ngrx/store"
-import { getUsers, setUsers } from "./user.action"
+import { setComments, setUsers } from "./user.action"
 
 let initialState = {
-    users:[]
+    users:[],
+    comment:{}
 }
 
 export const usersReducer = createReducer(
@@ -11,7 +12,7 @@ export const usersReducer = createReducer(
     on(setUsers,(state,{users})=>{
         return {...state, users}
     }),
-    on(getUsers,(state)=>{
-        return {...state}
+    on(setComments,(state,{comment})=>{
+        return {...state, comment}
     })
 )
